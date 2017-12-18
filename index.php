@@ -1,0 +1,90 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<?php
+
+$conn = mysqli_connect("localhost","root","","ajax");
+?>
+
+<form method="get"  id="frm">
+<input type="text" name="product"  id="insertval" placeholder="Enter name">
+<input type="submit" onclick="insert()">
+</form>
+
+<div id="output"></div>
+
+<script>
+    
+    $(document).ready(function(){
+        
+        $.ajax({
+           
+            type:"GET",
+            url:"select.php",
+            data:"html",
+            success:function(result){
+            
+                $("#output").html(result)
+                
+            }
+            
+            
+            
+        });
+        
+        
+    });
+        
+        
+        
+    
+    
+    
+    
+  function insert(){
+    
+      
+$("#frm").submit(function(e){
+e.preventDefault();
+
+    
+    $.ajax({
+        type: "GET",
+        url: "insert.php",
+        data: $("#frm").serialize(),
+        success: function(){
+        
+        alert("Done");
+        
+        }
+          
+    });
+    
+      $.ajax({
+        type: "GET",
+        url: "select.php",
+        data: "html",
+        success: function(result){
+        
+        $("#output").html(result);
+       
+            
+        }
+          
+    });
+    
+    
+    
+    
+    
+    $("#insertval").val("");
+    
+});
+      
+      
+      }
+        
+
+
+</script>
+
