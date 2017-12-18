@@ -21,8 +21,12 @@
             url: "select.php",
             data: "html",
             success: function(result){
-
-                $("#output").html(result);
+                var json = result;
+                var output = "";
+                json.forEach(function(data){
+                    output += "<div id='output'>" + data['pname'] + "</div><br/>";
+                });
+                $("#output").html(output);
 
             }
 
