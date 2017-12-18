@@ -7,8 +7,8 @@ $conn = mysqli_connect("localhost","root","","ajax");
 ?>
 
 <form method="get"  id="frm">
-<input type="text" name="product"  id="insertval" placeholder="Enter name">
-<input type="submit" onclick="insert()">
+<input type="text" name="product" id="insertval" placeholder="Enter name">
+<input type="submit">
 </form>
 
 <div id="output"></div>
@@ -34,11 +34,9 @@ $conn = mysqli_connect("localhost","root","","ajax");
         });
     }
 
-  function insert(){
 
-        $("#frm").submit(function(e){
+    $("#frm").submit(function(e){
         e.preventDefault();
-
         $.ajax({
             type: "GET",
             url: "insert.php",
@@ -51,7 +49,6 @@ $conn = mysqli_connect("localhost","root","","ajax");
         });
         $("#insertval").val("");
     });
-  }
 
 </script>
 
