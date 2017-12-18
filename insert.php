@@ -12,4 +12,3 @@ if(isset($_GET['product']) && str_replace(" ", "", $_GET['product']) != '') {
     $stmt->close();
 
  }
-?>
