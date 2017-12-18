@@ -1,11 +1,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<?php
-//adam please
-$conn = mysqli_connect("localhost","root","","ajax");
-?>
-
 <form method="get"  id="frm">
 <input type="text" name="product" id="insertval" placeholder="Enter name">
 <input type="submit">
