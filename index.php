@@ -16,23 +16,7 @@ $conn = mysqli_connect("localhost","root","","ajax");
 <script>
     
     $(document).ready(function(){
-        
-        $.ajax({
-           
-            type:"GET",
-            url:"select.php",
-            data:"html",
-            success:function(result){
-            
-                $("#output").html(result)
-                
-            }
-            
-            
-            
-        });
-        
-        
+        select();
     });
 
     function select()
