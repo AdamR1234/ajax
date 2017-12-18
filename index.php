@@ -34,57 +34,40 @@ $conn = mysqli_connect("localhost","root","","ajax");
         
         
     });
-        
-        
-        
-    
-    
-    
-    
+
+    function select()
+    {
+        $.ajax({
+            type: "GET",
+            url: "select.php",
+            data: "html",
+            success: function(result){
+
+                $("#output").html(result);
+
+            }
+
+        });
+    }
+
   function insert(){
-    
-      
-$("#frm").submit(function(e){
-e.preventDefault();
 
-    
-    $.ajax({
-        type: "GET",
-        url: "insert.php",
-        data: $("#frm").serialize(),
-        success: function(){
-        
-        alert("Done");
-        
-        }
-          
-    });
-    
-      $.ajax({
-        type: "GET",
-        url: "select.php",
-        data: "html",
-        success: function(result){
-        
-        $("#output").html(result);
-       
-            
-        }
-          
-    });
-    
-    
-    
-    
-    
-    $("#insertval").val("");
-    
-});
-      
-      
-      }
-        
+        $("#frm").submit(function(e){
+        e.preventDefault();
 
+        $.ajax({
+            type: "GET",
+            url: "insert.php",
+            data: $("#frm").serialize(),
+            success: function(){
+                select();
+                alert("Done");
+            }
+
+        });
+        $("#insertval").val("");
+    });
+  }
 
 </script>
 
